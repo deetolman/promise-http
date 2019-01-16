@@ -1,18 +1,23 @@
 const fsPromises = require('fs').promises;
 
+// const read = src => fsPromises.readFile(src, { encoding: 'utf8' });
+
 const removeCapitals = str => {
   return str
     .split('')
     .filter(letter => {
-      return letter ===  letter.toLowerCase();
-
+      return letter === letter.toLowerCase();
     })
     .join('');
 };
 
+const makeAllLettersCapital = str => str.toUpperCase();
+
+const reverse = str => str.split('').reverse().join('');
+const trim = str => str.trim();
+
 const transformer = src => {
-  // fsPromises.readFile(src);
-  return read(src)
+  return fsPromises.readFile(src, { encoding: 'utf8' })
   // .then(data => removeCapitals(data))
     .then(removeCapitals)
   // .then(data => makeAllLettersCapital(data))
@@ -23,4 +28,5 @@ const transformer = src => {
     .then(trim);
 };
 
-module.exports = transformer;
+module.exports = { transformer, removeCapitals };
+
