@@ -1,4 +1,4 @@
-const { transformer, removeCapitals, makeAllLettersCapital, reverse, trim } = require('./transformer');
+const { transformer, removeCapitals } = require('./transformer');
 
 describe('transformer', () => {
   it('transforms some file', () => {
