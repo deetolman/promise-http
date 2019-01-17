@@ -4,7 +4,10 @@ const EventEmitter = require('events');
 describe('bodyParser', () => {
   it('parses a request body', () => {
     const req = new EventEmitter();
-    
+    req.get = () => { };
+    req.getHeader = () => 'application/json';
+    req.method = 'POST';
+
     const promise = bodyParser(req)
       .then(json => {
         expect(json).toEqual({ testing: 1234 });

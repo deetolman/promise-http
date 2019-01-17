@@ -1,3 +1,5 @@
+/*eslint no-console: "error"*/
+
 const request = require('superagent');
 // const fsPromises = require('fs'). promises;
 
@@ -15,5 +17,5 @@ request
   })
 
   .then(originRess => originRess.map(originRes => originRes.body))
-  .then(origins => console.log(origins)); 
+  .then(origins => (origins)); 
 
