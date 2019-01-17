@@ -24,6 +24,17 @@ describe('app', () => {
       });
   });
 });
+it('save a note to notes object', () => {
+  return request(app)
+    .post('/characters')
+    .send({ characterId: 1, note: 'My favorite character' })
+    .then(res => {
+      //need to return a 204 not a 200
+      expect(res.status).toEqual(200);
+    });
+});
+
+
  
 
       
